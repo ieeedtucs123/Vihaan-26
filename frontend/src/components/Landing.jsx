@@ -8,6 +8,7 @@ import Button from "../utils/button";
 export default function Landing() {
 
   const [mobile, setMobile] = useState(window.innerWidth < 900);
+const [open, setOpen] = useState(false); 
 
   useEffect(() => {
     const resize = () => setMobile(window.innerWidth < 900);
@@ -17,6 +18,7 @@ export default function Landing() {
 
 
   return (
+    <>
     <div
       style={{
         minHeight: "100vh",
@@ -27,6 +29,7 @@ export default function Landing() {
         backgroundRepeat: "no-repeat",
         position: "relative",
         color: "#fff",
+           // 
       }}
     >
       {/* DARK OVERLAY */}
@@ -50,53 +53,92 @@ export default function Landing() {
         }}
       >
         {/*  NAVBAR */}
-         <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        {/* LOGO */}
-        <img
-          src="/vihaanlogo.svg"
-          alt="logo"
-          style={{ width: "100px" }}
-        />
-
-        {/* DESKTOP NAV */}
-        {!mobile && (
-          <div style={{ display: "flex", gap: "32px" }}>
-            {["ABOUT US", "SCHEDULE", "PRIZES", "TRACKS","GALLERY","FAQS"].map((item) => (
-              <span
-                key={item}
-                style={{
-                  fontFamily: "Julee, cursive",
-                  fontSize: "18px",
-                  cursor: "pointer",
-                }}
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* MOBILE MENU BUTTON */}
-        {mobile && (
-          <div
-  role="button"
+        <nav
   style={{
-    cursor: "pointer",
-    color: "#fff",
-    fontSize: "28px",
-    userSelect: "none",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    position: "relative",
   }}
 >
-  ☰
-</div>
-        )}
-      </nav>
+  {/* LOGO */}
+  <img
+    src="/vihaanlogo.svg"
+    alt="logo"
+    style={{ width: "100px" }}
+  />
+
+  {/* DESKTOP NAV */}
+  {!mobile && (
+    <div style={{ display: "flex", gap: "32px" }}>
+      {["ABOUT", "SCHEDULE", "PRIZES", "TRACKS","GALLERY","FAQS"].map((item) => (
+        <span
+          key={item}
+          style={{
+            fontFamily: "Julee, cursive",
+            fontSize: "18px",
+            cursor: "pointer",
+          }}
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+  )}
+
+  {/* MOBILE HAMBURGER */}
+  {mobile && (
+    <div style={{ position: "relative" }}>
+      {/* ☰ */}
+      <div
+        onClick={() => setOpen(!open)}
+        style={{
+          cursor: "pointer",
+          fontSize: "28px",
+          color: "#fff",
+          userSelect: "none",
+        }}
+      >
+        ☰
+      </div>
+
+      {/* DROPDOWN */}
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: "40px",
+            background: "#000",
+            border: "1px solid #fff",
+            borderRadius: "6px",
+            padding: "12px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+            zIndex: 10,
+          }}
+        >
+          {["ABOUT", "SCHEDULE", "PRIZES", "TRACKS","GALLERY","FAQS"].map((item) => (
+            <span
+              key={item}
+              onClick={() => setOpen(false)}
+              style={{
+                fontFamily: "Julee, cursive",
+                fontSize: "16px",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  )}
+</nav>
+
 
         {/*HERO */}
         <div
@@ -150,5 +192,10 @@ export default function Landing() {
         </div>
       </div>
     </div>
+
+    <div>
+      
+    </div>
+    </>
   );
 }
