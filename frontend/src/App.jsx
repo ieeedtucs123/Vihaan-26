@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Landing from './components/Landing.jsx'
+import Landing2 from './components/Landing2.jsx'
 import './App.css'
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
     </div>
     <div id='landing'>
       <Landing></Landing>
+    </div>
+    <div id='landing2'>
+      <Landing2></Landing2>
     </div>
     </>
   )
