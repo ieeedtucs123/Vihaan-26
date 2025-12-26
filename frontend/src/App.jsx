@@ -4,6 +4,7 @@ import Intro from './components/Loader.jsx'
 import Tracks from './components/Tracks.jsx'
 import Landing2 from './components/Landing2.jsx'
 import Gallery from './components/Gallery/Gallery.jsx'
+import Footer from './components/Footer/Footer.jsx'
 import './App.css'
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
 
       <div id="Gallery">
         <Gallery></Gallery>
+      </div>
+
+      <div id="footer">
+        <Footer/>
       </div>
     </>
   )

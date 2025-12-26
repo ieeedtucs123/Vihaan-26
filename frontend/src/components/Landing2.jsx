@@ -1,7 +1,7 @@
 import CardStack from "../utils/CardStack";
 import Carousel from "../utils/Carousel";
 import FunkyButton from "../utils/FunkyButton";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export default function Landing2() {
   return (
