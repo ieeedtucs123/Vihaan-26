@@ -102,6 +102,54 @@
     font-size: 3em;
 }
 
+.click-text {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Container for overlay */
+.item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Indicator wrapper */
+.click-indicator {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* Arrow animation */
+.arrow {
+  display: inline-block;
+  font-size: 52px;
+  color: #ffffff;
+  animation: arrowFloat 1.8s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Up-down animation */
+@keyframes arrowFloat {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+
 .banner .content .model {
     background-image: url(/images/model.png); /* Ensure this path is correct */
     width: 100%;
@@ -114,6 +162,83 @@
     background-position: top center;
     z-index: 1;
 }
+/* ===== MODAL BACKDROP ===== */
+.track-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* ===== FLIP CARD ===== */
+.track-flip {
+  width: 320px;
+  height: 460px;
+  position: relative;
+
+  transform-style: preserve-3d;
+  animation: flipIn 0.9s ease forwards;
+}
+
+
+/* BACK FACE */
+.track-back {
+  transform: rotateY(180deg);
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+/* CLOSE BUTTON */
+.track-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #bba75d;
+  background: rgba(0, 0, 0, 0.6);
+  color: #bba75d;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.track-close:hover {
+  background: #bba75d;
+  color: #000;
+}
+
+/* ===== FLIP IN ANIMATION ===== */
+@keyframes flipIn {
+  0% {
+    transform: rotateY(0deg) scale(0.7);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateY(180deg) scale(1);
+    opacity: 1;
+  }
+}
+
+
+
 
 @media screen and (max-width: 1023px) {
     .banner .slider {

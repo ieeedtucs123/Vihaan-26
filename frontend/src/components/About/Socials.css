@@ -1,0 +1,7 @@
+.Socials {
+    margin: 0 auto;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}

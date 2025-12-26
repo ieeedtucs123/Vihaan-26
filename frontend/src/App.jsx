@@ -3,6 +3,7 @@ import Landing from './components/Landing.jsx'
 import Intro from './components/Loader.jsx'
 import Tracks from './components/Tracks.jsx'
 import Landing2 from './components/Landing2.jsx'
+import Faqs from './components/Faqs/faqs.jsx'
 import Gallery from './components/Gallery/Gallery.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import './App.css'
@@ -28,6 +29,7 @@ function App() {
           <Landing />
         </div>
       )}
+      
 
       <div id="tracks">
         <Tracks />
@@ -37,6 +39,10 @@ function App() {
         <Landing2 />
       </div>
 
+      <div id='faqs'>
+        <Faqs />
+      </div>
+      
       <div id="Gallery">
         <Gallery></Gallery>
       </div>
