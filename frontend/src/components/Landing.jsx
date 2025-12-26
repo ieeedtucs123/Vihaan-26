@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import Button from "../utils/button/button.jsx";
 import "../App.css";
 import { createPortal } from "react-dom";
-// If you are using Next.js, you might need: import { useEffect, useState } from "react";
+import About from "./About/About.jsx";
 
 export default function Landing() {
   const [mobile, setMobile] = useState(window.innerWidth < 900);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const resize = () => setMobile(window.innerWidth < 900);
@@ -37,15 +38,19 @@ useEffect(() => {
 
 
   return (
-    <div className="min-h-screen w-full bg-[url('/bglanding.svg')] bg-cover bg-center bg-no-repeat relative text-white">
+    <>
+    <div className="relative">
+        <About isVisible={isVisible} setIsVisible={setIsVisible}></About>
+    </div>
+    <div className="w-full relative text-white">
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-100 min-h-screen flex flex-col">
         {/* NAVBAR */}
        <nav
-  className={`fixed top-1 left-1/2 -translate-x-1/2   z-50
-  w-[92%] max-w-6xl
+  className={`fixed top-1 left-1/2 -translate-x-1/2 z-50
+  w-[95%] max-w-7xl
   flex items-center justify-between
   px-5 rounded-xl
   transition-all duration-300
@@ -65,8 +70,9 @@ useEffect(() => {
             <div className="flex items-center gap-8">
               {navItems.map((item) =>
                 item === "TRACKS" ? (
-                  <span
+                  <a
                     key={item}
+                    href={`#${item.toLowerCase()}`}
                     className="font-[Julee] text-lg tracking-[0.12em] px-4 py-1
                     border-2 border-[#9CA802] rounded-md
                     text-[#9CA802] bg-black/60
@@ -74,14 +80,15 @@ useEffect(() => {
                     cursor-pointer"
                   >
                     {item}
-                  </span>
+                  </a>
                 ) : (
-                  <span
+                  <a
                     key={item}
+                    href={`#${item.toLowerCase()}`}
                     className="font-[Julee] text-lg cursor-pointer hover:text-[#9CA802] transition"
                   >
                     {item}
-                  </span>
+                  </a>
                 )
               )}
             </div>
@@ -89,9 +96,6 @@ useEffect(() => {
 
           {/* MOBILE ICON */}
          
-{/* 1. HAMBURGER BUTTON (Only visible when mobile and menu is CLOSED) */}
-{/* 1. HAMBURGER BUTTON (Only visible when mobile and menu is CLOSED) */}
-{/* 1. HAMBURGER BUTTON (Visible when menu is CLOSED) */}
 {mobile && !open && (
   <button
     onClick={() => setOpen(true)}
@@ -107,7 +111,7 @@ useEffect(() => {
   <div
     className="
       fixed inset-0
-      z-[99999]
+      z-99999
       w-screen h-screen
       bg-black text-white
      
@@ -119,7 +123,7 @@ useEffect(() => {
     {/* CLOSE BUTTON */}
     <button
       onClick={() => setOpen(false)}
-      className="absolute top-6 right-6 text-4xl hover:text-[#9CA802] transition-colors z-[100000] cursor-pointer"
+      className="absolute top-6 right-6 text-4xl hover:text-[#9CA802] transition-colors z-100000 cursor-pointer"
       aria-label="Close Menu"
     >
       ✕
@@ -140,7 +144,7 @@ useEffect(() => {
         
         {/* STARTERS */}
         <div className="flex flex-col gap-8">
-          <a href="#about" onClick={() => setOpen(false)} className="font-[Julee] text-2xl hover:text-[#9CA802] transition">
+          <a href="#about" onClick={() => setOpen(false) }  className="font-[Julee] text-2xl hover:text-[#9CA802] transition">
             ABOUT
           </a>
           <a href="#schedule" onClick={() => setOpen(false)} className="font-[Julee] text-2xl hover:text-[#9CA802] transition">
@@ -196,10 +200,22 @@ useEffect(() => {
             COMING SOON…
           </p>
 
-          <div className="mb-4 text-lg tracking-wide">REGISTER AT</div>
-          <Button text="Devfolio" />
+          <div className="mb-4 text-lg reg tracking-wide">REGISTER AT</div>
+          <Button text="Devfolio" isVisible={isVisible} setIsVisible={setIsVisible}/>
         </div>
+        <hr
+          className="
+            glow-hr
+            border-0 h-[8px] w-full
+            bg-gradient-to-r from-transparent via-[#bba75d] to-transparent
+          "
+        />
+
+
       </div>
+      
     </div>
+    
+    </>
   );
 }

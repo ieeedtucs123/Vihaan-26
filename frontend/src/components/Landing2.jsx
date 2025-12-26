@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export default function Landing2() {
   return (
-    <section className="relative min-h-screen w-full bg-black text-white overflow-hidden">
+    <section className="relative min-h-screen w-full text-white overflow-hidden">
 
       {/* ⭐ DECORATIVE STARS */}
       <img src="/star.svg" className="absolute left-6 top-16 w-6 opacity-70 md:w-8" />

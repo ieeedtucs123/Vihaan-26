@@ -10,8 +10,17 @@ const Accordion = ({QAPair}) => {
   return (
     <>
     <div
-      style={{ border: isOpen ? 'None' : '0.3em solid #f9f9f9', borderRadius: '0.5rem', width: '90%', margin: '10px auto', overflow: 'visible', zIndex: '100' }}>
+    
+      style={{ border: isOpen ? 'None' : '0.3em solid #f9f9f9', borderRadius: '0.5rem', width: '90%', margin: '10px auto' , zIndex: '10' }}>
       <div
+      onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(prev => !prev);
+                  setShowClickEffect(true);
+                  clickTimeoutRef.current = setTimeout(() => {
+                    setShowClickEffect(false);
+                  }, 250);
+                }}
         style={{
           display: 'flex',
           justifyContent: 'space-between',

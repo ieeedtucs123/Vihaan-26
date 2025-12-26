@@ -1,4 +1,17 @@
 @import "tailwindcss";
+body {
+  background-image: url("./assets/bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+ 
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
 .font-bangers {
   font-family: 'Bangers', cursive;
 }
@@ -22,11 +35,7 @@
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-
-
-    filter: drop-shadow(3px 3px 0 #000)
-          ;
-
+  filter: drop-shadow(3px 3px 0 #000);
   transform: skewX(-4deg);
   display: inline-block;
 }
@@ -47,24 +56,32 @@
 
 .nav-text {
   font-family: "Julee", cursive;
-  
   font-weight: 400;
   font-size: 25px;
-
-  
   line-height: 1;         
-
   letter-spacing: 0.05em;
-
   color: #ffffff;
-
   cursor: pointer;
 }
 
 .reg{
   font-family: "Bangers";
   margin: 2px;
-  font-size: 20px;
+  font-size: 25px;
   -webkit-text-stroke: 1px black;
 }
 
+@keyframes glowFade {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(208,190,128,0.3);
+    opacity: 0.6;
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(208,190,128,0.95);
+    opacity: 1;
+  }
+}
+
+.glow-hr {
+  animation: glowFade 4s ease-in-out infinite;
+}

@@ -8,7 +8,7 @@ import Gallery from './components/Gallery/Gallery.jsx'
 import './App.css'
 
 function App() {
-  const [showIntro, setShowIntro] = useState(false)
+  const [showIntro, setShowIntro] = useState(true)
 
   return (
     <>
@@ -28,6 +28,7 @@ function App() {
           <Landing />
         </div>
       )}
+      
 
       <div id="tracks">
         <Tracks />
@@ -44,6 +45,7 @@ function App() {
       <div id="Gallery">
         <Gallery></Gallery>
       </div>
+      
     </>
   )
 }
