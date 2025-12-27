@@ -57,7 +57,7 @@ function App() {
       )}
 
       {/* MAIN CONTENT */}
-      {!showIntro && (
+      {!showIntro && !showGate && (
         <>
           <div id="landing">
             <Landing />

@@ -10,7 +10,7 @@ import "./gallery-swapy.css";
 
 function SvgCard({ src, name }) {
   return (
-    <div className="relative bg-black rounded-2xl h-full w-full overflow-hidden shadow-lg">
+    <div className="relative bg-black text-center rounded-2xl h-full w-full overflow-hidden shadow-lg">
       
       {/* BLURRED BACKGROUND */}
       <img
@@ -105,7 +105,7 @@ function DefaultSwapy() {
   return (
     <div className="swapy-scope">
       <h1
-  className="heading mt-20 mb-5 text-center w-full gallery-heading"
+  className="heading mt-20 mb-5 text-center w-[90vw] gallery-heading"
   style={{ fontSize: "clamp(48px, 10vw, 100px)" ,filter: "drop-shadow(3px 3px 0 white)" }}
 >
   Gallery:
