@@ -1,11 +1,6 @@
 @import "tailwindcss";
 body {
-  background-image: url("./assets/bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  scroll-behavior: smooth;
- 
+  background-color: #000;
 }
 
 html{
@@ -19,7 +14,7 @@ html{
 .heading {
  font-family: "Bangers", cursive;
   font-weight: 400;
-  font-size: 100px;
+  font-size: 9vh;
   line-height: 1;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -46,12 +41,11 @@ html{
   color: #FFFFFF;
   -webkit-text-stroke: 1px black; /* stroke lgana seekhlo bs */
   text-shadow: 4px 4px 0px #000000;
-  font-size: 40px;
+  font-size: 4vh;
   letter-spacing: 0.1em;
   line-height: 1;
-  font-weight: 400; 
-  width: 35%; 
-  text-align: right;
+  font-weight: 500; 
+  width: 75%; 
 }
 
 .nav-text {

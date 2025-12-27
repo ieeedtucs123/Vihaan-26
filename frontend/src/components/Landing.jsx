@@ -39,10 +39,10 @@ useEffect(() => {
 
   return (
     <>
-    <div className="relative">
+    <div className="relative ">
         <About isVisible={isVisible} setIsVisible={setIsVisible}></About>
     </div>
-    <div className="w-full relative text-white">
+    <div className="w-full relative bg-[url('./assets/bg.svg')] bg-cover bg-center bg-no-repeat text-white">
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
@@ -196,7 +196,7 @@ useEffect(() => {
             VIHAAN 9.0
           </h1>
 
-          <p className="paragraph text-[clamp(18px,3vw,26px)] mb-6">
+          <p className="paragraph text-[clamp(18px,3vw,26px)] ml-28 mb-50">
             COMING SOON…
           </p>
 
@@ -207,10 +207,9 @@ useEffect(() => {
           className="
             glow-hr
             border-0 h-[8px] w-full
-            bg-gradient-to-r from-transparent via-[#bba75d] to-transparent
+            bg-gradient-to-r from-transparent via-[#ffc800] to-transparent
           "
         />
-
 
       </div>
       
